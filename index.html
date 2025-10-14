@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Quest</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Voice Quest</h1>
+        <p>Embark on a magical journey to master spoken English. Conquer each chamber to summon the Speaking Guardian!</p>
+      </div>
+      <div class="progress-map" id="progressMap">
+        <div class="map-node" data-chamber="1">Read Aloud</div>
+        <div class="map-node" data-chamber="2">Repeat Sentence</div>
+        <div class="map-node" data-chamber="3">Describe Image</div>
+        <div class="map-node" data-chamber="4">Re-tell Lecture</div>
+        <div class="map-node" data-chamber="5">Answer Question</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="scoreboard">
+        <div class="score-bar">
+          <span>Fluency</span>
+          <div class="meter"><div class="fill" id="fluencyBar"></div></div>
+        </div>
+        <div class="score-bar">
+          <span>Pronunciation</span>
+          <div class="meter"><div class="fill" id="pronunciationBar"></div></div>
+        </div>
+        <div class="score-bar">
+          <span>Content</span>
+          <div class="meter"><div class="fill" id="contentBar"></div></div>
+        </div>
+        <div class="score-summary">
+          <h2>Speaking Power <span id="speakingPower">0%</span></h2>
+          <div class="badges" id="badgeDisplay"></div>
+        </div>
+      </section>
+
+      <section class="chamber" id="readAloudChamber">
+        <h2>Chamber I: Read Aloud Challenge</h2>
+        <p class="chamber-intro">Release your magic power by reading the enchanted script with clarity and expression.</p>
+        <div class="floating-text" id="readAloudText"></div>
+        <button class="record-button" data-mode="readAloud">Start</button>
+        <div class="magic-feedback">
+          <div class="magic-orb" id="readAloudOrb"></div>
+          <p id="readAloudResult">Awaiting incantation...</p>
+        </div>
+      </section>
+
+      <section class="chamber" id="repeatSentenceChamber">
+        <h2>Chamber II: Repeat Sentence Quest</h2>
+        <p class="chamber-intro">Echo the ancient voice to charge the Echo Power beam.</p>
+        <button class="play-button" data-mode="repeatSentence">🔊 Play Sentence</button>
+        <button class="record-button" data-mode="repeatSentence">Start</button>
+        <div class="magic-feedback">
+          <div class="energy-beam" id="repeatSentenceBeam"></div>
+          <p id="repeatSentenceResult">Echo chamber awaits...</p>
+        </div>
+      </section>
+
+      <section class="chamber" id="describeImageChamber">
+        <h2>Chamber III: Describe Image Mission</h2>
+        <p class="chamber-intro">Paint the picture with your words to fill the Creativity Meter.</p>
+        <div class="image-frame">
+          <img id="describeImage" alt="Mystic prompt" />
+        </div>
+        <button class="record-button" data-mode="describeImage">Start</button>
+        <div class="magic-feedback">
+          <div class="creativity-meter" id="creativityMeter"></div>
+          <p id="describeImageResult">Describe what you see...</p>
+        </div>
+      </section>
+
+      <section class="chamber" id="retellLectureChamber">
+        <h2>Chamber IV: Re-tell Lecture Arena</h2>
+        <p class="chamber-intro">Absorb the arcane lecture and unleash Knowledge Orbs.</p>
+        <button class="play-button" data-mode="retellLecture">▶ Play Lecture</button>
+        <button class="record-button" data-mode="retellLecture">Start</button>
+        <div class="magic-feedback">
+          <div class="knowledge-orbs" id="knowledgeOrbs"></div>
+          <p id="retellLectureResult">Capture the essence and retell...</p>
+        </div>
+      </section>
+
+      <section class="chamber" id="shortQuestionChamber">
+        <h2>Chamber V: Answer Short Question Duel</h2>
+        <p class="chamber-intro">Respond swiftly to claim bonus coins and sparks.</p>
+        <button class="play-button" data-mode="shortQuestion">❔ Ask Question</button>
+        <button class="record-button" data-mode="shortQuestion">Start</button>
+        <div class="magic-feedback">
+          <div class="spark-burst" id="sparkBurst"></div>
+          <p id="shortQuestionResult">Ready for the duel...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="rewards">
+        <div class="reward-item">Coins: <span id="coinTotal">0</span></div>
+        <div class="reward-item">XP: <span id="xpTotal">0</span></div>
+      </div>
+      <div class="guardian" id="guardianStatus">Defeat all chambers to challenge the Speaking Guardian!</div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
